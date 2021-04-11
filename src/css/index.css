@@ -1,0 +1,13 @@
+.centrar_spinner{
+    margin-top: -30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo{
+    padding-top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

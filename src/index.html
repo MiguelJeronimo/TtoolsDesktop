@@ -2,11 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!--https://getmdl.io/components/index.html#layout-section  << framework de google-->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <link rel="stylesheet" href="css/material.css">
+     <link rel="stylesheet" href="css/blessings.css">
+     <link rel="stylesheet" href="css/index.css">
+     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>Ttools</title>
 </head>
 <body>
-    hola
+        <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header barraOpciones">
+    <div class="titulo"><h4>Bienvenidos a Ttools</h4></div>
+    <main class="mdl-layout__content  centrar_spinner">
+        <!-- MDL Spinner Component -->
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </main>
+
+</div>
+<script src="js/index.js"></script>
 </body>
 </html>

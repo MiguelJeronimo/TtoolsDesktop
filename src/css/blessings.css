@@ -1,0 +1,54 @@
+.barraOpciones{
+    background-color: #263238;
+}
+
+.titulo{
+    color: white;
+    text-align: center;
+}
+
+.online{
+    color: #76FF03;
+}
+
+.separador-boton{
+    margin-left: 5%;
+}
+
+.caja{
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.blanco{
+    color: #B0BEC5;
+}
+
+.etiqueta{
+    margin-right: 5%;
+    color: white;
+}
+
+.colorBotonMorado{
+    background-color: #6a1b9a;
+}
+
+.mdl-textfield__error-validacion {/**Servira para validacion de los campos de texto*/
+    color: rgb(213,0,0);
+    position: absolute;
+    font-size: 12px;
+    margin-top: 3px;
+    visibility: hidden;
+    display: block; }
+    .mdl-textfield.is-invalid .mdl-textfield__error-validacion{
+      visibility: visible; }
+  
+
+.mdl-button--accent--purple.mdl-button--accent--purple {
+    color: #6a1b9a; }
+.mdl-button--accent--purple.mdl-button--accent--purple .mdl-ripple {
+      background: rgb(255,255,255); }
+.mdl-button--accent--purple.mdl-button--accent--purple.mdl-button--raised, .mdl-button--accent--purple.mdl-button--accent--purple.mdl-button--fab--purple {
+      color: rgb(255,255,255);
+      background-color: #6a1b9a; }
+
