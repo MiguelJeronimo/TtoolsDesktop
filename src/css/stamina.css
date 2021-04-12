@@ -1,0 +1,40 @@
+.demo-card-wide.mdl-card {
+    width: 400px;
+    height: 250px;
+    background-color: #263238;
+   
+  }
+  .demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
+
+  .online{
+    color: #76FF03;
+}
+
+  .mdl-card__supporting-text {
+    color: #8d8d8d;
+    font-size: 1rem;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 16px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%; }
+    .mdl-card__supporting-text.mdl-card--border {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    }
+
+.contenedorTarjetas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
