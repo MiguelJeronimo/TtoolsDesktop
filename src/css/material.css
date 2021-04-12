@@ -7733,7 +7733,7 @@ input.mdl-button[type="submit"] {
     margin-left: 240px; }
   .mdl-layout__container.has-scrolling-header .mdl-layout__content {
     overflow: visible; }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 800px) {
     .mdl-layout--fixed-drawer > .mdl-layout__content {
       margin-left: 0; }
     .mdl-layout__container.has-scrolling-header .mdl-layout__content {
