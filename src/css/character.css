@@ -1,0 +1,27 @@
+.titulo-tabla{
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+
+  .tabla{
+      padding-top: 2%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .error{
+      color:#D50000;
+  }
+
+  .online{
+      color: #76FF03;
+  }
+
+  .texto{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+}
