@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!--https://getmdl.io/components/index.html#layout-section  << framework de google-->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="css/material.css">
+      <link rel="stylesheet" href="css/blessings.css">
+      <link rel="stylesheet" href="css/character.css">
+      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>Mundos</title>
+</head>
+<body>
+       <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class=" barraOpciones mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Ttools</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation online">
+          <spam class="mdl-navigation__link online" id="rashid"></spam>
+          <spam id="personaje_online"></spam>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer barraOpciones">
+      <span class="mdl-layout-title">Ttools</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="blessings.html">Blessings</a>
+        <a class="mdl-navigation__link" href="experienciacompartida.html">Experiencia Compartida</a>
+        <a class="mdl-navigation__link" href="character.html">Personajes</a>
+        <a class="mdl-navigation__link" href="stamina.html">Stamina</a>
+        <a class="mdl-navigation__link" href="mundos.html">Mundos</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content barraOpciones">
+
+      <div class="page-content"><!-- Your content goes here -->
+        <div class="titulo"><h4>Personaje</h4></div>
+        <div class="titulo">
+            <!-- Textfield with Floating Label -->
+            <div class="mdl-menu__container is-visible" id="formulario">
+              <select class="mdl-menu__item"  name="" id="selectWorlds">
+             
+              </select>
+              <label class="mdl-textfield__label blanco" for="sample3">Character</label>
+              <span class="mdl-textfield__error" id="leyenda-error"></span>
+          </div>
+        <form >
+        
+         <!-- Accent-colored raised button with ripple -->
+         <button id="calcular" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent--purple separador-boton">
+          Buscar
+         </button i>
+        </form>
+        </div>
+      </div>
+
+        <div class="">
+          <h5 class="titulo-tabla">Mundos</h5>
+        </div >
+        
+
+     <div class="tabla" id="tabla"> 
+      <table class="mdl-data-table mdl-js-data-table with=1000px">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Mundo</th>
+            <th>Onlines</th>
+            <th>Localización</th>
+            <th>Tipo PVP</th>
+          </tr>
+        </thead>
+        <tbody id="tabla">
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">Solidera</td>
+            <td class="mdl-data-table__cell--non-numeric">14752</td>
+            <td class="mdl-data-table__cell--non-numeric">North america</td>
+            <td class="mdl-data-table__cell--non-numeric">	Retro Hardcore PvP</td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">Solidera</td>
+            <td class="mdl-data-table__cell--non-numeric">14752</td>
+            <td class="mdl-data-table__cell--non-numeric">North america</td>
+            <td class="mdl-data-table__cell--non-numeric">Hardcore PVP</td>
+          </tr>
+          <tr>
+        </tbody>
+            </table>
+     </div>
+      <script src="js/mundo.js"></script>
+      <script src="js/personajes_online.js"></script>
+    </main>
+  </div>  
+</body>
+</html>
