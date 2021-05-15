@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <!--https://getmdl.io/components/index.html#layout-section  << framework de google-->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
       <link rel="stylesheet" href="css/material.css">
       <link rel="stylesheet" href="css/blessings.css">
       <link rel="stylesheet" href="css/character.css">
@@ -54,39 +55,61 @@
                 <br>
                 <div  class="mdl-grid titulo tamaño">
               
-                    <div class="mdl-cell mdl-cell--6-col-phone"><Strong>Status:</Strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="spiritual">Online</div>
+                    <div class="mdl-cell mdl-cell--6-col-phone"><Strong>Mundo:</Strong></div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="mundo">-</div>
             
                     <div class="mdl-cell mdl-cell--6-col-phone"><Strong>Players Online:</Strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="embrace">219</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="players">-</div>
                     
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>Online Record:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id = "suns">687 players (on Oct 21 2020, 17:50:30 CEST)</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id = "record_online">-</div>
             
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>Creation Date:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="solitude">10/20</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="fecha_creacion">-</div>
             
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>Location:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="phoenix">Europe</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="localizacion">-</div>
 
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>PvP Type:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="solitude">Open PvP</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="tipo_pvp">-</div>
             
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>Transfer Type:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="phoenix">blocked</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="tipo_transferencia">-</div>
 
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>World Quest Titles:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="solitude">A Piece of Cake, The Colours of Magic</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="quest_mundo">-</div>
             
                     <div class="mdl-cell mdl-cell--6-col-phone"><strong>BattlEye Status:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="phoenix">Protected by BattlEye since its release.</div>
+                    <div class="mdl-cell mdl-cell--2-col-phone" id="battleeye">-</div>
 
-                    <div class="mdl-cell mdl-cell--6-col-phone"><strong>Game World Type:</strong></div>
-                    <div class="mdl-cell mdl-cell--2-col-phone" id="phoenix">Regular</div>
                 </div>
         </div>
       </div>
       
+      <div class="worldQuest">
+        <h5>Quest World Title</h5>
+      </div>
+      <div class="worldQuest" id="worldQuest">
+        <ul class="demo-list-icon mdl-list">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon">star</i>
+            Rise of Devovorga
+        </span>
+          </li>
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">star</i>
+              The Lightbearer
+          </li>
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon">star</i>
+            A Piece of Cake
+          </span>
+          </li>
+        </ul>
+      </div>
       
  <div class="tabla" id="tabla"> 
       <table class="mdl-data-table mdl-js-data-table with=1000px">
@@ -98,19 +121,8 @@
           
           </tr>
         </thead>
-        <tbody id="tablas">
-          <tr>
-           <td class="mdl-data-table__cell--non-numeric">Selur San</td>
-           <td class="mdl-data-table__cell--non-numeric">201</td>
-           <td class="mdl-data-table__cell--non-numeric">Royal Paladin</td>
-            
-          </tr>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric">Selur San</td>
-            <td class="mdl-data-table__cell--non-numeric">201</td>
-            <td class="mdl-data-table__cell--non-numeric">Royal Paladin</td>
-          </tr>
-          <tr> 
+        <tbody id="datos">
+          
         </tbody>
         </table>
      </div>

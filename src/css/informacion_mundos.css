@@ -6,3 +6,10 @@
 .tamaño{
     width: 70%;
 }
+
+.worldQuest{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -6447,7 +6447,7 @@ input.mdl-button[type="submit"] {
           align-items: center;
   padding: 16px;
   cursor: default;
-  color: rgba(0,0,0, 0.87);
+  color: white;
   overflow: hidden; }
   .mdl-list__item .mdl-list__item-primary-content {
     -webkit-order: 0;
@@ -6496,7 +6496,7 @@ input.mdl-button[type="submit"] {
   width: 24px;
   font-size: 24px;
   box-sizing: border-box;
-  color: rgb(117,117,117); }
+  color: white; }
 
 .mdl-list__item-avatar,
 .mdl-list__item-avatar.material-icons {
