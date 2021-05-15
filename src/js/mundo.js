@@ -1,41 +1,10 @@
 let calcular = document.getElementById('calcular');
 let cuerpo = document.getElementById('cuerpo');
-
 cuerpo.onload  = function (){
-   obtenerMundos();
+  obtenerMundos();
+  Rashid()
+  playerOnline()
 }
-
-
-/**function obtenerMundos() {
-    let url = 'https://api.tibiadata.com/v2/worlds.json';
-    let array;
-    let worlds
-    fetch(url).
-    then(function(resp){return resp.json();}).
-    then(function(data){
-         try{
-             let selectWorlds = document.getElementById('selectWorlds');
-             let opciones = document.createElement('option');//crear un elemento
-             array = data.worlds.allworlds.length;
-             opciones.value="";
-             opciones.text="Seleccione una opción";
-             selectWorlds.appendChild(opciones);
-             for (let i = 0; i < array; i++) {
-                 worlds = data.worlds.allworlds[i].name;
-                 let opciones2 = document.createElement('option');
-                 opciones2.value =worlds;
-                 opciones2.text =worlds;
-                 selectWorlds.appendChild(opciones2);
-             }
-         }
-         catch(error){
-             console.error(error);
-         }
-    }).catch(
-        function(error){
-            console.error(error.error());
-     });
- }**/
 
  function obtenerMundos(){
     let url = 'https://api.tibiadata.com/v2/worlds.json';
@@ -78,3 +47,39 @@ cuerpo.onload  = function (){
             console.error(error.error());
      });
  }
+
+ function playerOnline() {
+    url = `https://api.tibiadata.com/v2/worlds.json`;
+    let personaje_online = document.getElementById('personaje_online');
+    let onlines;
+    fetch(url)
+    .then((resp) => resp.json())
+    .then(function (data) {
+       try {
+        onlines = data.worlds.online;
+        personaje_online.innerText= 'Personajes online: '+onlines;
+       } catch (error) {
+           console.error(error);
+       }
+    }).catch(function (error) {
+        console.error(error.error());
+    });
+  }
+
+  function Rashid() {
+    url = `https://api.tibialabs.com/v1/rashid/city`;
+    let spam_rashid = document.getElementById('rashid');
+    let rashid;
+    fetch(url)
+    .then((resp) => resp.text())
+    .then(function (data) {
+       try {
+        rashid = data;
+        spam_rashid.innerHTML= '<img src="img/rashid.gif"> Hoy Rashid se encuentra en '+rashid;
+       } catch (error) {
+           console.error(error);
+       }
+    }).catch(function (error) {
+        console.error(error.error());
+    });
+  }

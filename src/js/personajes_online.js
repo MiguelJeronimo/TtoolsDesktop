@@ -1,9 +1,9 @@
 let body = document.querySelector('body');
+
 //import obtenerMundos() from './mundo';
 body.onload = function () {
     playerOnline();
     Rashid();
-    obtenerMundos();
 }
 
 function playerOnline() {
@@ -41,6 +41,5 @@ function playerOnline() {
         console.error(error.error());
     });
   }
-/**
- * llenando el
- */
+
+
