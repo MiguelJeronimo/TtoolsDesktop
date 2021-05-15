@@ -2,7 +2,7 @@ let calcular = document.getElementById('calcular');
 let cuerpo = document.getElementById('cuerpo');
 
 cuerpo.onload  = function (){
-    obtenerMundos();
+   obtenerMundos();
 }
 
 
@@ -58,11 +58,13 @@ cuerpo.onload  = function (){
                  tipo_mundo = data.worlds.allworlds[i].worldtype;
                  adicional = data.worlds.allworlds[i].additional;
                  datos.innerHTML += `
+                    <tr>
                     <td class="mdl-data-table__cell--non-numeric">${nombre}</td>
                     <td class="mdl-data-table__cell--non-numeric">${onlines}</td>
                     <td class="mdl-data-table__cell--non-numeric">${locacion}</td>
                     <td class="mdl-data-table__cell--non-numeric">${tipo_mundo}</td>
                     <td class="mdl-data-table__cell--non-numeric">${adicional}</td>
+                    </tr>
                  `;
                  tabla.appendChild(datos);
 
