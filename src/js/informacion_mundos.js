@@ -88,7 +88,7 @@ function obtenerMundos() {
 function worldQuestTitle(world) {
     let worldQuest = document.getElementById('worldQuest');
     if (world == '') {
-        // tablaDatos.innerHTML = '';
+         worldQuest.innerHTML = '';
      }else{
       let url = `https://api.tibiadata.com/v3/world/${world}`;
       fetch(url).
@@ -98,7 +98,15 @@ function worldQuestTitle(world) {
               let array = data.worlds.world.world_quest_titles.length;
             for (let i = 0; i < array; i++) {
                 let quest = data.worlds.world.world_quest_titles[i];
-                console.log(quest);
+                worldQuest.innerHTML += `
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                    <i class="material-icons mdl-list__item-icon">star</i>
+                        ${quest}
+                    </span>
+                </li>
+                
+                `;
             }
               
           } catch (error) {
