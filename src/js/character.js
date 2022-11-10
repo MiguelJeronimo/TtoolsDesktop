@@ -11,7 +11,7 @@ calcular.onclick = function (e) {
 }
 
 function buscarPersonaje(nombre) {
-    url = `https://api.tibiadata.com/v2/characters/${nombre}.json`;
+    url = `https://api.tibiadata.com/v3/character/${nombre}`;
     // Variables para extraer los datos de personaje
     let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership,
      Last_Login, comment, Account_Status, guildName, guildRank, guilds;
@@ -25,26 +25,25 @@ function buscarPersonaje(nombre) {
        // console.log(data.characters.data.last_login[0].date);
        //console.log(data.characters.deaths[0].reason);
        try {
-        if (data.characters.error) {
-            error = data.characters.error;
-            tablaContenido.innerHTML = `<spam><strong class="error" id="error">${error}</strong></spam>`;
+        if (data.characters.character.name =="") {
+            tablaContenido.innerHTML = `<spam><strong class="error" id="error">Personaje no existe</strong></spam>`;
         } else{
-            name = data.characters.data.name;
-            title = data.characters.data.title;
-            sex = data.characters.data.sex;
-            vocation = data.characters.data.vocation;
-            level = data.characters.data.level;
-            Achievement_Points = data.characters.data.achievement_points;
-            world = data.characters.data.world;
-            residence = data.characters.data.residence;
-            Guild_Membership = data.characters.data.guild;
-            Last_Login = data.characters.data.last_login[0].date+' '+data.characters.data.last_login[0].timezone;
-            comment = data.characters.data.comment;
-            Account_Status = data.characters.data.account_status;
+            name = data.characters.character.name;
+            title = data.characters.character.title;
+            sex = data.characters.character.sex;
+            vocation = data.characters.character.vocation;
+            level = data.characters.character.level;
+            Achievement_Points = data.characters.character.achievement_points;
+            world = data.characters.character.world;
+            residence = data.characters.character.residence;
+            Guild_Membership = data.characters.character.guild;
+            Last_Login = data.characters.character.last_login;
+            comment = data.characters.character.comment;
+            Account_Status = data.characters.character.account_status;
             
             if (Guild_Membership !== undefined) {
-                guildName = data.characters.data.guild.name;
-                guildRank = data.characters.data.guild.rank;
+                guildName = data.characters.character.guild.name;
+                guildRank = data.characters.character.guild.rank;
                 guilds= guild(guildRank, guildName);
             } else{
                 guilds = 'No tiene guild';
