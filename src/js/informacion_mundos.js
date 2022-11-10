@@ -16,7 +16,7 @@ selectWorlds.onchange = function (e) {
 }
 
 function obtenerMundos() {
-    let url = 'https://api.tibiadata.com/v2/worlds.json';
+    let url = 'https://api.tibiadata.com/v3/worlds';
     let array;
     let worlds
     fetch(url).
@@ -25,12 +25,12 @@ function obtenerMundos() {
          try{
              let selectWorlds = document.getElementById('selectWorlds');
              let opciones = document.createElement('option');//crear un elemento
-             array = data.worlds.allworlds.length;
+             array = data.worlds.regular_worlds.length;
              opciones.value="";
              opciones.text="Seleccione una opción";
              selectWorlds.appendChild(opciones);
              for (let i = 0; i < array; i++) {
-                 worlds = data.worlds.allworlds[i].name;
+                 worlds = data.worlds.regular_worlds[i].name;
                  let opciones2 = document.createElement('option');
                  opciones2.value =worlds;
                  opciones2.text =worlds;
@@ -60,19 +60,19 @@ function obtenerMundos() {
     if (world == '') {
        // tablaDatos.innerHTML = '';
     }else{
-     let url = `https://api.tibiadata.com/v2/world/${world}.json`;
+     let url = `https://api.tibiadata.com/v3/world/${world}`;
      fetch(url).
      then(function(resp){return resp.json()}).
      then(function (data) {
          try {
-             mundo.innerText = data.world.world_information.name;
-             players.innerText = data.world.world_information.players_online;
-             record_online.innerText = data.world.world_information.online_record.players +' Players el: '+data.world.world_information.online_record.date.date+' '+data.world.world_information.online_record.date.timezone;
-             fecha_creacion.innerText = data.world.world_information.creation_date;
-             localizacion.innerText = data.world.world_information.location;
-             tipo_pvp.innerText = data.world.world_information.pvp_type;
-             mundo.innerText = data.world.world_information.name;
-             battleeye.innerText = data.world.world_information.battleye_status;
+             mundo.innerText = data.worlds.world.name;
+             players.innerText = data.worlds.world.players_online;
+             record_online.innerText = data.worlds.world.record_players +' Players el: '+data.worlds.world.record_date;
+             fecha_creacion.innerText = data.worlds.world.creation_date;
+             localizacion.innerText = data.worlds.world.location;
+             tipo_pvp.innerText = data.worlds.world.pvp_type;
+             //mundo.innerText = data.worlds.world.name;
+             battleeye.innerText = data.worlds.world.battleye_protected;
              
          } catch (error) {
              console.log(error);
@@ -90,14 +90,14 @@ function worldQuestTitle(world) {
     if (world == '') {
         // tablaDatos.innerHTML = '';
      }else{
-      let url = `https://api.tibiadata.com/v2/world/${world}.json`;
+      let url = `https://api.tibiadata.com/v3/world/${world}`;
       fetch(url).
       then(function(resp){return resp.json()}).
       then(function (data) {
           try {
-              let array = data.world.world_information.world_quest_titles.length;
+              let array = data.worlds.world.world_quest_titles.length;
             for (let i = 0; i < array; i++) {
-                let quest = data.world.world_information.world_quest_titles[i];
+                let quest = data.worlds.world.world_quest_titles[i];
                 console.log(quest);
             }
               
@@ -117,18 +117,18 @@ function worldQuestTitle(world) {
     if (mundo == '') {
         tablaDatos.innerHTML = '';
     }else{
-     let url = `https://api.tibiadata.com/v2/world/${mundo}.json`;
+     let url = `https://api.tibiadata.com/v3/world/${mundo}`;
      let arrayPlayers;
      let array;
      fetch(url).
      then(function(resp){return resp.json()}).
      then(function (data) {
          try {
-            array = data.world.players_online.length;
+            array = data.worlds.world.online_players.length;
             for (let i = 0; i < array; i++) {
-                let nombre = data.world.players_online[i].name;
-                let nivel = data.world.players_online[i].level;
-                let vocacion = data.world.players_online[i].vocation;
+                let nombre = data.worlds.world.online_players[i].name;
+                let nivel = data.worlds.world.online_players[i].level;
+                let vocacion = data.worlds.world.online_players[i].vocation;
                 tablaDatos.innerHTML += `
                 <tr>
                 <td class="mdl-data-table__cell--non-numeric" id="nombre">${nombre}</td>
@@ -149,14 +149,14 @@ function worldQuestTitle(world) {
  }
 
  function playerOnline() {
-    url = `https://api.tibiadata.com/v2/worlds.json`;
+    url = `https://api.tibiadata.com/v3/worlds`;
     let personaje_online = document.getElementById('personaje_online');
     let onlines;
     fetch(url)
     .then((resp) => resp.json())
     .then(function (data) {
        try {
-        onlines = data.worlds.online;
+        onlines = data.worlds.players_online;
         personaje_online.innerText= 'Personajes online: '+onlines;
        } catch (error) {
            console.error(error);
