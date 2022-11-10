@@ -7,14 +7,14 @@ body.onload = function () {
 }
 
 function playerOnline() {
-    url = `https://api.tibiadata.com/v2/worlds.json`;
+    url = `https://api.tibiadata.com/v3/worlds`;
     let personaje_online = document.getElementById('personaje_online');
     let onlines;
     fetch(url)
     .then((resp) => resp.json())
     .then(function (data) {
        try {
-        onlines = data.worlds.online;
+        onlines = data.worlds.players_online;
         personaje_online.innerText= 'Personajes online: '+onlines;
        } catch (error) {
            console.error(error);
