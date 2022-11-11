@@ -14,7 +14,7 @@ function buscarPersonaje(nombre) {
     url = `https://api.tibiadata.com/v3/character/${nombre}`;
     // Variables para extraer los datos de personaje
     let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership,
-     Last_Login, comment, Account_Status, guildRank, guilds, houses;
+     Last_Login, comment, Account_Status, guildRank, guilds, house, muertes;
 
     let tablaContenido = document.getElementById('tabla');
     let error;
@@ -41,7 +41,9 @@ function buscarPersonaje(nombre) {
             comment = data.characters.character.comment;
             Account_Status = data.characters.character.account_status;
             house = data.characters.character.houses
+            muertes = data.characters.deaths
             Houses(house)
+            Muertes(muertes)
             if (Guild_Membership !== undefined) {
                 guildName = data.characters.character.guild.name;
                 guildRank = data.characters.character.guild.rank;
@@ -98,13 +100,6 @@ function buscarPersonaje(nombre) {
               </tr>
             </tbody>
                 </table>`;
-
-
-
-
-
-
-
         }
        } catch (error) {
            console.error(error);
@@ -145,7 +140,6 @@ function guild(rango, nombreGuild) {
 function Houses(houses) {
   let tabla = document.getElementById('tabla-houses')
   let plantilla = ""
-  console.log(houses)
   if(houses !== undefined){
      plantilla+=`
     <table class="mdl-data-table mdl-js-data-table with=1000px">
@@ -157,6 +151,32 @@ function Houses(houses) {
             <tr>
               <td class="mdl-data-table__cell--non-numeric">House</td>
               <td class="mdl-data-table__cell--non-numeric">${casas.name}, ${casas.town}, ${casas.paid}</td>
+            </tr>
+      `
+    })
+    plantilla +=`
+    </tbody>
+    </table>`
+
+   tabla.innerHTML = plantilla
+  } else{
+   tabla.innerHTML =""
+  }
+}
+function Muertes(muertes) {
+  let tabla = document.getElementById('tabla-muertes')
+  let plantilla = ""
+  if(muertes !== undefined){
+     plantilla+=`
+    <table class="mdl-data-table mdl-js-data-table with=1000px">
+          <caption>Muertes</caption>
+          <tbody id="tabla">
+    `
+    muertes.forEach(muerte => {
+      plantilla+=`
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">${muerte.time}</td>
+              <td class="mdl-data-table__cell--non-numeric">${muerte.reason}</td>
             </tr>
       `
     })
