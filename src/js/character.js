@@ -14,7 +14,7 @@ function buscarPersonaje(nombre) {
     url = `https://api.tibiadata.com/v3/character/${nombre}`;
     // Variables para extraer los datos de personaje
     let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership,
-     Last_Login, comment, Account_Status, guildRank, guilds, house, muertes;
+     Last_Login, comment, Account_Status, guildRank, guilds, house, muertes, informacion;
 
     let tablaContenido = document.getElementById('tabla');
     let error;
@@ -42,8 +42,11 @@ function buscarPersonaje(nombre) {
             Account_Status = data.characters.character.account_status;
             house = data.characters.character.houses
             muertes = data.characters.deaths
+            informacion = data.characters.account_information
+
             Houses(house)
             Muertes(muertes)
+            accountInformation(informacion)
             if (Guild_Membership !== undefined) {
                 guildName = data.characters.character.guild.name;
                 guildRank = data.characters.character.guild.rank;
@@ -180,6 +183,36 @@ function Muertes(muertes) {
             </tr>
       `
     })
+    plantilla +=`
+    </tbody>
+    </table>`
+
+   tabla.innerHTML = plantilla
+  } else{
+   tabla.innerHTML =""
+  }
+}
+
+function accountInformation(informacion) {
+  let tabla = document.getElementById('tabla-informacion')
+  console.log(informacion)
+  let plantilla = ""
+  if(informacion.created !== undefined){
+     plantilla+=`
+    <table class="mdl-data-table mdl-js-data-table with=1000px">
+          <caption>Información de la cuenta</caption>
+          <tbody id="tabla">
+    `
+    plantilla+=`
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Created:</td>
+              <td class="mdl-data-table__cell--non-numeric">${informacion.created}</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Loyalty Title:</td>
+              <td class="mdl-data-table__cell--non-numeric">${informacion.loyalty_title}</td>
+            </tr>
+      `
     plantilla +=`
     </tbody>
     </table>`
