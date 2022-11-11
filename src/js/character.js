@@ -14,7 +14,7 @@ function buscarPersonaje(nombre) {
     url = `https://api.tibiadata.com/v3/character/${nombre}`;
     // Variables para extraer los datos de personaje
     let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership,
-     Last_Login, comment, Account_Status, guildRank, guilds, house, muertes, informacion;
+     Last_Login, comment, Account_Status, guildRank, guilds, house, muertes, informacion, otros_personajes;
 
     let tablaContenido = document.getElementById('tabla');
     let error;
@@ -43,10 +43,12 @@ function buscarPersonaje(nombre) {
             house = data.characters.character.houses
             muertes = data.characters.deaths
             informacion = data.characters.account_information
-
+            otros_personajes = data.characters.other_characters
             Houses(house)
             Muertes(muertes)
             accountInformation(informacion)
+            otrosPersonajes(otros_personajes)
+
             if (Guild_Membership !== undefined) {
                 guildName = data.characters.character.guild.name;
                 guildRank = data.characters.character.guild.rank;
@@ -213,6 +215,50 @@ function accountInformation(informacion) {
               <td class="mdl-data-table__cell--non-numeric">${informacion.loyalty_title}</td>
             </tr>
       `
+    plantilla +=`
+    </tbody>
+    </table>`
+
+   tabla.innerHTML = plantilla
+  } else{
+   tabla.innerHTML =""
+  }
+}
+function otrosPersonajes(personajes) {
+  let tabla = document.getElementById('tabla-otros-personajes')
+  console.log(personajes)
+  let plantilla = ""
+  if(personajes !== undefined){
+     plantilla+=`
+    <table class="mdl-data-table mdl-js-data-table with=1000px">
+          <caption>Información de la cuenta</caption>
+          <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+            <th class="mdl-data-table__cell--non-numeric">Mundo</th>
+            <th class="mdl-data-table__cell--non-numeric">Status</th>
+            <th class="mdl-data-table__cell--non-numeric">Deleted</th>
+            <th class="mdl-data-table__cell--non-numeric">Main</th>
+            <th class="mdl-data-table__cell--non-numeric">Traded</th>
+          
+          </tr>
+        </thead>
+          <tbody id="tabla">
+    `
+    personajes.forEach(personaje => {
+      let resultado = ""
+      //en resultado se validara utilizando un operador ternario ?, donde se validara si el personaje esta online u offline
+      plantilla+=`
+      <tr class ="${resultado = (personaje.status == "online")?"online":"error"}">
+        <td class="mdl-data-table__cell--non-numeric">${personaje.name}</td>
+        <td class="mdl-data-table__cell--non-numeric">${personaje.world}</td>
+        <td class="mdl-data-table__cell--non-numeric">${personaje.status}</td>
+        <td class="mdl-data-table__cell--non-numeric">${personaje.deleted}</td>
+        <td class="mdl-data-table__cell--non-numeric">${personaje.main}</td>
+        <td class="mdl-data-table__cell--non-numeric">${personaje.traded}</td>
+      </tr>
+`
+    });
     plantilla +=`
     </tbody>
     </table>`
