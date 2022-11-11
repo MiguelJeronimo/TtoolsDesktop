@@ -10,7 +10,6 @@ cuerpo.onload  = function (){
     let url = 'https://api.tibiadata.com/v3/creatures';
     let tabla = document.getElementById('tablas');
     let bosted, criaturas;
-    let name, race, imageUrl
     let plantilla = ""
     fetch(url).
     then(function(resp){return resp.json();}).
@@ -25,9 +24,7 @@ cuerpo.onload  = function (){
              <td class="mdl-data-table__cell--non-numeric">${bosted.race}</td>
              </tr>
              `
-            let datos
             criaturas.forEach(criatura => {
-            //let datos = document.createElement('tr');
                  plantilla += `
                     <tr>
                     <td class="mdl-data-table__cell--non-numeric"><img src="${criatura.image_url}"></td>
@@ -36,8 +33,6 @@ cuerpo.onload  = function (){
                     </tr>
                  `;
            });
-           //datos.innerHTML += plantilla
-           //tabla.appendChild(datos);
            tabla.innerHTML = plantilla
          }
          catch(error){
