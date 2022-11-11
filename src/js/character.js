@@ -14,7 +14,7 @@ function buscarPersonaje(nombre) {
     url = `https://api.tibiadata.com/v3/character/${nombre}`;
     // Variables para extraer los datos de personaje
     let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership,
-     Last_Login, comment, Account_Status, guildName, guildRank, guilds;
+     Last_Login, comment, Account_Status, guildRank, guilds, houses;
 
     let tablaContenido = document.getElementById('tabla');
     let error;
@@ -40,7 +40,8 @@ function buscarPersonaje(nombre) {
             Last_Login = data.characters.character.last_login;
             comment = data.characters.character.comment;
             Account_Status = data.characters.character.account_status;
-            
+            house = data.characters.character.houses
+            Houses(house)
             if (Guild_Membership !== undefined) {
                 guildName = data.characters.character.guild.name;
                 guildRank = data.characters.character.guild.rank;
@@ -97,6 +98,13 @@ function buscarPersonaje(nombre) {
               </tr>
             </tbody>
                 </table>`;
+
+
+
+
+
+
+
         }
        } catch (error) {
            console.error(error);
@@ -132,4 +140,32 @@ function guild(rango, nombreGuild) {
     } else{
         return 'No tiene guild';
     }
+}
+
+function Houses(houses) {
+  let tabla = document.getElementById('tabla-houses')
+  let plantilla = ""
+  console.log(houses)
+  if(houses !== undefined){
+     plantilla+=`
+    <table class="mdl-data-table mdl-js-data-table with=1000px">
+          <caption>Casas</caption>
+          <tbody id="tabla">
+    `
+    houses.forEach(casas => {
+      plantilla+=`
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">House</td>
+              <td class="mdl-data-table__cell--non-numeric">${casas.name}, ${casas.town}, ${casas.paid}</td>
+            </tr>
+      `
+    })
+    plantilla +=`
+    </tbody>
+    </table>`
+
+   tabla.innerHTML = plantilla
+  } else{
+   tabla.innerHTML =""
+  }
 }
