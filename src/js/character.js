@@ -13,9 +13,8 @@ calcular.onclick = function (e) {
 function buscarPersonaje(nombre) {
     url = `https://api.tibiadata.com/v3/character/${nombre}`;
     // Variables para extraer los datos de personaje
-    let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership,
+    let name, title, sex, vocation, level, Achievement_Points,world, residence, Guild_Membership, casado,
      Last_Login, comment, Account_Status, guildRank, guilds, house, muertes, informacion, otros_personajes;
-
     let tablaContenido = document.getElementById('tabla');
     let error;
     if(nombre !== ""){
@@ -44,6 +43,7 @@ function buscarPersonaje(nombre) {
             muertes = data.characters.deaths
             informacion = data.characters.account_information
             otros_personajes = data.characters.other_characters
+            casado = data.characters.character.married_to
             Houses(house)
             Muertes(muertes)
             accountInformation(informacion)
@@ -86,6 +86,14 @@ function buscarPersonaje(nombre) {
               <tr>
                 <td class="mdl-data-table__cell--non-numeric">Mundo:</td>
                 <td class="mdl-data-table__cell--non-numeric">${world}</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Residente:</td>
+                <td class="mdl-data-table__cell--non-numeric">${residence}</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Situación sentimental:</td>
+                <td class="mdl-data-table__cell--non-numeric">${Casado(casado)}</td>
               </tr>
               <tr>
                 <td class="mdl-data-table__cell--non-numeric">Guild membership:</td>
@@ -132,6 +140,13 @@ function comentario(comentario) {
     } else {
         return 'No tiene comentario';
     }
+}
+function Casado(comentario) {
+  if (comentario !== undefined) {
+    return "Casado con: "+comentario;      
+  } else {
+      return 'Soltero';
+  }
 }
 
 function guild(rango, nombreGuild) {
@@ -197,7 +212,6 @@ function Muertes(muertes) {
 
 function accountInformation(informacion) {
   let tabla = document.getElementById('tabla-informacion')
-  console.log(informacion)
   let plantilla = ""
   if(informacion.created !== undefined){
      plantilla+=`
@@ -226,7 +240,6 @@ function accountInformation(informacion) {
 }
 function otrosPersonajes(personajes) {
   let tabla = document.getElementById('tabla-otros-personajes')
-  console.log(personajes)
   let plantilla = ""
   if(personajes !== undefined){
      plantilla+=`
