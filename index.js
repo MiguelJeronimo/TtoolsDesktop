@@ -13,7 +13,7 @@ const path = require('path');
 //}
 
 function Ventana_Principal() {
-    let win = new BrowserWindow({width: 800, height: 600, maxWidth:800, maxHeight: 600, minHeight:600,minWidth:800,show: false,title: 'TtoolsDesktop' ,maximizable: false ,icon: 'src/img/dragon.png'});
+    let win = new BrowserWindow({width: 800, height: 600, maxWidth:800, maxHeight: 600, minHeight:600,minWidth:800,show: false,title: 'TtoolsDesktop' ,maximizable: false ,icon: __dirname + '/dragon.png'});
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'src/index.html'),
         protocol: 'file',
